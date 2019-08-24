@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
-
+//user defined function for strtok
 char *mystrtok(char str[], char dilim)
 {
     static char *input = NULL;
@@ -11,7 +11,7 @@ char *mystrtok(char str[], char dilim)
     }
     char *output = new char[strlen(input) + 1];
     int i;
-    if(input==NULL)
+    if (input == NULL)
     {
         return NULL;
     }
@@ -28,19 +28,19 @@ char *mystrtok(char str[], char dilim)
             return output;
         }
     }
-    output[i]='\0';
-    input=NULL;
+    output[i] = '\0';
+    input = NULL;
     return output;
 }
 int main()
 {
-    char ch[] = "Hi my name is aman";
+    char str[] = "Hi my name is aman";
     char *ptr;
-    ptr = strtok(ch, " ");
+    ptr = mystrtok(str, ' ');
     while (ptr != NULL)
     {
         cout << ptr << endl;
-        ptr = strtok(NULL, " ");
+        ptr = mystrtok(NULL, ' ');
     }
     return 0;
 }
